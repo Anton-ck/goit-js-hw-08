@@ -11,7 +11,13 @@ const onFormInput = () => {
 }
 
 const onFormSubmit = event => {
-  event.preventDefault();
+      event.preventDefault();
+    if (email.value === '' || message.value === '') 
+    { 
+        alert('You are stupid! You must fill all the fields');
+        return;
+    }
+
   console.log({ email: email.value, message: message.value });
   localStorage.removeItem(STORAGE_KEY);
   event.target.reset();
@@ -20,9 +26,11 @@ const onFormSubmit = event => {
 const onPageReset = () => {
   if (dataForm) {
     email.value = dataForm.email || '';
-    message.value = dataForm.message|| '';
+    message.value = dataForm.message || '';
   }
-}
+
+    }
+
 
 onPageReset();
 
